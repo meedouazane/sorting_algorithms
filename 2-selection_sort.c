@@ -28,7 +28,7 @@ void selection_sort(int *array, size_t size)
 			if (z == size - 1)
 				printf("%d", array[z]);
 			else
-				printf("%d ,", array[z]);
+				printf("%d, ", array[z]);
 		}
 		printf("\n");
 		}
