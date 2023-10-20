@@ -58,6 +58,9 @@ void quick_sort(int *array, size_t size)
 {
 	int high, low = 0;
 
+	if (!array || !size)
+		return;
+
 	high = size - 1;
 	quick_sort_helper(array, low, high);
 }
