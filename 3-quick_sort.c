@@ -17,7 +17,7 @@ int partition(int a[], int low, int high)
 		if (a[j] < pivot)
 		{
 			i++;
-			tmp = a[j];
+			tmp = a[i];
 			a[i] = a[j];
 			a[j] = tmp;
 		}
@@ -37,7 +37,7 @@ int partition(int a[], int low, int high)
  */
 void quick_sort_helper(int *array, int low, int high)
 {
-	size_t size;
+	size_t size = 0;
 	int part = 0;
 
 	size = sizeof(array) + 2;
