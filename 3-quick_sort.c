@@ -1,31 +1,33 @@
 #include "sort.h"
 /**
  * partition - first part of quick sorting.
- * @a: array of int
+ * @array: array of int
  * @low: first element in an array
  * @high: last element in an array
  * Return: the index of element pivot in array
  */
-int partition(int a[], int low, int high)
+int partition(int *array, int low, int high)
 {
-	int pivot = a[high];
+	int pivot = array[high];
 	int i = low - 1;
 	int tmp, j = 0;
+	size_t size = 0;
 
+	size = sizeof(array) + 2;
 	for (j = low; j <= high; j++)
 	{
-		if (a[j] < pivot)
+		if (array[j] < pivot)
 		{
 			i++;
-			tmp = a[i];
-			a[i] = a[j];
-			a[j] = tmp;
+			tmp = array[i];
+			array[i] = array[j];
+			array[j] = tmp;
 		}
 	}
-	tmp = a[i + 1];
-	a[i + 1] = a[high];
-	a[high] = tmp;
-
+	tmp = array[i + 1];
+	array[i + 1] = array[high];
+	array[high] = tmp;
+	print_array(array, size);
 	return (i + 1);
 }
 /**
@@ -37,16 +39,13 @@ int partition(int a[], int low, int high)
  */
 void quick_sort_helper(int *array, int low, int high)
 {
-	size_t size = 0;
 	int part = 0;
 
-	size = sizeof(array) + 2;
 	if (low < high)
 	{
 		part = partition(array, low, high);
 		quick_sort_helper(array, low, part - 1);
 		quick_sort_helper(array, part + 1, high);
-		print_array(array, size);
 	}
 }
 /**
