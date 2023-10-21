@@ -1,5 +1,23 @@
 #include "sort.h"
 /**
+ * swapElements - swap two variables without using a temporary variable.
+ * @array: array of int
+ * @i: pointers to integer.
+ * @j: pointers to integer.
+ * @size: size of the array.
+ * Return: Nothing.
+ */
+void swapElements(int *array, int *j, int *i, size_t size)
+{
+	if (*j != *i)
+	{
+		*j = *j + *i;
+		*i = *j - *i;
+		*j = *j - *i;
+		print_array(array, size);
+	}
+}
+/**
  * partition - first part of quick sorting.
  * @array: array of int
  * @low: first element in an array
@@ -10,24 +28,15 @@
 int partition(int *array, int low, int high, size_t size)
 {
 	int pivot = array[high];
-	int i = low - 1;
-	int tmp, j = 0;
+	int i, j;
 
-	for (j = low; j <= high; j++)
+	for (i = j = low; j < high; j++)
 	{
 		if (array[j] < pivot)
-		{
-			i++;
-			tmp = array[i];
-			array[i] = array[j];
-			array[j] = tmp;
-		}
+			swapElements(array, &array[j], &array[i++], size);
 	}
-	tmp = array[i + 1];
-	array[i + 1] = array[high];
-	array[high] = tmp;
-	print_array(array, size);
-	return (i + 1);
+	swapElements(array, &array[i], &array[high], size);
+	return (i);
 }
 /**
  * quick_sort_helper - first part of quick sort
