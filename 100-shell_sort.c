@@ -7,10 +7,11 @@
  */
 void shell_sort(int *array, size_t size)
 {
-	int gap, j, i = 0;
+	int gap = 1;
+	int j, i = 0;
 	int tmp = 0;
 
-	for (gap = size / 2; gap > 0; gap /= 2)
+	for (gap = 3 * gap + 1; gap > 0; gap /= 2)
 	{
 		for (i = gap; i < (int)size; i += 1)
 		{
