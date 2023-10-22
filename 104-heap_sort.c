@@ -49,6 +49,7 @@ void heap_sort(int *array, size_t size)
 		array[i] = tmp;
 		print_array(array, size);
 		heap(array, i, 0);
+		print_array(array, size);
 	}
 }
 
