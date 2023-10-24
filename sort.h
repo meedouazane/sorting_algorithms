@@ -1,5 +1,6 @@
 #ifndef SORT_H
 #define SORT_H
+#include <stdlib.h>
 #include <stddef.h>
 #include <stdio.h>
 /**
@@ -23,6 +24,6 @@ void heap(int *array, size_t size, int i);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 void shell_sort(int *array, size_t size);
-
+void merge_sort(int *array, size_t size);
 void heap_sort(int *array, size_t size);
 #endif
